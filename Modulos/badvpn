@@ -1,7 +1,7 @@
 #!/bin/bash
 fun_badvpn() {
     clear
-    echo -e "\E[44;1;37m        ㅤ🐉ㅤBADVPN MANAGERㅤ🐉ㅤ         \E[0m"
+    echo -e "\E[44;1;37m        ㅤ🔰ㅤBADVPN MANAGERㅤ🔰ㅤ         \E[0m"
     echo ""
     if ps x | grep -w udpvpn | grep -v grep 1>/dev/null 2>/dev/null; then
         echo -e "\033[1;33m◇ PORTS\033[1;37m: \033[1;32m$(netstat -nplt | grep 'badvpn-ud' | awk {'print $4'} | cut -d: -f2 | xargs)"
@@ -10,7 +10,7 @@ fun_badvpn() {
     fi
     var_sks1=$(ps x | grep "udpvpn"|grep -v grep > /dev/null && echo -e "\033[1;32m♦ " || echo -e "\033[1;31m○ ")
     echo ""
-    echo -e "\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37m• \033[1;33mACTIVATE BADVPN(Port 7300) $var_sks1 \033[0m"
+    echo -e "\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37m• \033[1;33mACTIVATE  💚BADVPN(Port 7300) $var_sks1 \033[0m"
     echo -e "\033[1;31m[\033[1;36m2\033[1;31m] \033[1;37m• \033[1;33mOPEN THE PORT\033[0m"
     echo -e "\033[1;31m[\033[1;36m0\033[1;31m] \033[1;37m• \033[1;33mCOME BACK\033[0m"
     echo ""
@@ -36,12 +36,12 @@ fun_badvpn() {
             echo ""
             fun_stopbad
             echo ""
-            echo -e "\033[1;32m◇ BADVPN SUCCESSFULLY DISABLED!\033[1;33m"
+            echo -e "\033[1;32m◇ BADVPN SUCCESSFULLY DISABLED 🆘!\033[1;33m"
             sleep 3
             fun_badvpn
         else
             clear
-            echo -e "\033[1;32m◇ STARTING BADVPN... \033[0m\n"
+            echo -e "\033[1;32m◇ STARTING BADVPN...✡ \033[0m\n"
             fun_udpon () {
                 screen -dmS udpvpn /bin/badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 10000 --max-connections-for-client 8
                 [[ $(grep -wc "udpvpn" /etc/autostart) = '0' ]] && {
@@ -57,7 +57,7 @@ fun_badvpn() {
                     sleep 0.1
                 } || {
                     cd $HOME
-                    wget https://github.com/januda-ui/DRAGON-VPS-MANAGER/raw/main/Modulos/badvpn-udpgw -o /dev/null
+                    wget https://github.com/NetworkChukka/Anonymous-Vps-Manager/raw/main/Modulos/badvpn-udpgw -o /dev/null
                     mv -f $HOME/badvpn-udpgw /bin/badvpn-udpgw
                     chmod 777 /bin/badvpn-udpgw
                 }
@@ -66,7 +66,7 @@ fun_badvpn() {
             inst_udp
             fun_udpon
             echo ""
-            echo -e "\033[1;32m◇ SUCCESSFULLY ACTIVATED BADVPN\033[1;33m"
+            echo -e "\033[1;32m◇ SUCCESSFULLY ACTIVATED BADVPN 🔯\033[1;33m"
             sleep 3
             fun_badvpn
         fi
@@ -79,7 +79,7 @@ fun_badvpn() {
             read porta
             [[ -z "$porta" ]] && {
                 echo ""
-                echo -e "\033[1;31m◇ Invalid port!"
+                echo -e "\033[1;31m◇ Invalid port❗!"
                 sleep 2
                 clear
                 menu
@@ -94,7 +94,7 @@ fun_badvpn() {
             }
             fun_abrirptbad
             echo ""
-            echo -e "\033[1;32m◇ SUCCESSFULLY ACTIVATED BADVPN\033[1;33m"
+            echo -e "\033[1;32m◇ SUCCESSFULLY ACTIVATED BADVPN 💘\033[1;33m"
             sleep 2
             fun_badvpn
         else

@@ -1,5 +1,5 @@
 #!/bin/bash
-tput setaf 7 ; tput setab 4 ; tput bold ; printf '%35s%s%-10s\n' "🐉ㅤChange User Passwordㅤ🐉" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; printf '%35s%s%-10s\n' "🔰ㅤChange User Passwordㅤ🔰" ; tput sgr0
 echo ""
 echo -e "\033[1;33mLIST OF USERS AND THEIR PASSWORDS: \033[0m"
 echo""
@@ -30,7 +30,7 @@ then
 	exit 1
 elif [[ -z $user ]]
 then
-	tput setaf 7 ; tput setab 1 ; tput bold ; echo "" ; echo "You entered an empty or invalid name!" ; echo "" ; tput sgr0
+	tput setaf 7 ; tput setab 1 ; tput bold ; echo "" ; echo "You entered an empty or invalid name! ⁉" ; echo "" ; tput sgr0
 	exit 1
 else
 	if [[ `grep -c /$user: /etc/passwd` -ne 0 ]]
@@ -39,7 +39,7 @@ else
 		sizepass=$(echo ${#password})
 		if [[ $sizepass -lt 4 ]]
 		then
-			tput setaf 7 ; tput setab 1 ; tput bold ; echo "" ; echo "Empty or invalid password! use at least 4 characters" ; echo "" ; tput sgr0
+			tput setaf 7 ; tput setab 1 ; tput bold ; echo "" ; echo "Empty or invalid password! use at least 4 characters❎" ; echo "" ; tput sgr0
 			exit 1
 		else
 			ps x | grep $user | grep -v grep | grep -v pt > /tmp/rem
@@ -51,7 +51,7 @@ else
 				exit 1
 			else
 				echo ""
-				tput setaf 7 ; tput setab 4 ; tput bold ; echo "User logged in. Disconnecting..." ; tput sgr0
+				tput setaf 7 ; tput setab 4 ; tput bold ; echo "User logged in. Disconnecting... 🔕" ; tput sgr0
 				pkill -f $user
 				echo "$user:$password" | chpasswd
 				tput setaf 7 ; tput setab 1 ; tput bold ; echo "" ; echo "User password $user has been changed to: $password" ; echo "" ; tput sgr0
@@ -60,6 +60,6 @@ else
 			fi
 		fi
 	else
-		tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "The user $user does not exist!" ; echo "" ; tput sgr0
+		tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "The user $user does not exist!❗" ; echo "" ; tput sgr0
 	fi
 fi
