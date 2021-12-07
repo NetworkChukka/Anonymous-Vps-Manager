@@ -62,7 +62,7 @@ fun_tst () {
 speedtest --share > speed
 }
 echo ""
-echo -e "   \033[1;32mㅤ🔰ㅤTESTING SERVER SPEEDㅤ🔰ㅤ\033[0m"
+echo -e "   \033[1;32mㅤ🔰ㅤTESTING SERVER SPEED.ㅤ🔰ㅤ\033[0m"
 echo ""
 aguarde 'fun_tst'
 echo ""
